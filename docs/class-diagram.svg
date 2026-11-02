@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950" viewBox="0 0 1200 950" role="img" aria-labelledby="title description">
+  <title id="title">Battle Arena klassdiagram</title>
+  <desc id="description">Klassrelationer för meny, spel, karaktärer, resultat, klient, server och resultatlagring.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#263238"/>
+    </marker>
+    <marker id="triangle" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 1 1 L 10 6 L 1 11 z" fill="#ffffff" stroke="#263238" stroke-width="1.5"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #17212b; }
+      .title { font-size: 30px; font-weight: 700; }
+      .class-title { font-size: 19px; font-weight: 700; }
+      .body { font-size: 16px; }
+      .relation { font-size: 14px; fill: #17212b; }
+      .box { stroke-width: 2.5; rx: 12; }
+      .line { fill: none; stroke: #263238; stroke-width: 2.4; marker-end: url(#arrow); }
+      .inheritance { fill: none; stroke: #263238; stroke-width: 2.4; marker-end: url(#triangle); }
+      .implements { fill: none; stroke: #263238; stroke-width: 2.2; stroke-dasharray: 8 6; marker-end: url(#triangle); }
+    </style>
+  </defs>
+  <rect width="1200" height="950" fill="#ffffff"/>
+  <text x="600" y="46" text-anchor="middle" class="title">Battle Arena – klassdiagram</text>
+
+  <!-- Relationship lines are behind the class boxes. -->
+  <path class="line" d="M 600 145 L 600 205"/>
+  <text x="615" y="181" class="relation">startar</text>
+  <path class="line" d="M 430 270 C 330 300, 240 325, 210 370"/>
+  <text x="280" y="315" class="relation">ber om datorval</text>
+  <path class="line" d="M 560 285 L 560 370"/>
+  <text x="575" y="340" class="relation">använder</text>
+  <path class="line" d="M 690 270 C 800 305, 900 325, 950 370"/>
+  <text x="780" y="315" class="relation">väljer handling</text>
+  <path class="line" d="M 800 240 L 1175 240 L 1175 562 L 1150 562"/>
+  <text x="930" y="230" class="relation">skapar resultat</text>
+
+  <path class="inheritance" d="M 170 555 C 210 505, 470 510, 560 480"/>
+  <path class="inheritance" d="M 600 555 L 600 480"/>
+  <path class="inheritance" d="M 1030 555 C 990 505, 730 510, 640 480"/>
+  <text x="285" y="520" class="relation">ärver</text>
+  <text x="612" y="530" class="relation">ärver</text>
+  <text x="875" y="520" class="relation">ärver</text>
+
+  <path class="implements" d="M 170 650 C 210 700, 420 710, 510 755"/>
+  <path class="implements" d="M 600 650 L 600 755"/>
+  <path class="implements" d="M 1030 650 C 990 700, 780 710, 690 755"/>
+  <text x="270" y="700" class="relation">implementerar</text>
+  <text x="615" y="713" class="relation">implementerar</text>
+  <text x="825" y="700" class="relation">implementerar</text>
+
+  <path class="line" d="M 1000 605 L 1000 650"/>
+  <text x="1015" y="635" class="relation">resultat till</text>
+  <path class="line" d="M 1000 725 L 1000 770"/>
+  <text x="1015" y="755" class="relation">hanteras av</text>
+  <path class="line" d="M 1000 845 L 1000 875"/>
+  <text x="1015" y="866" class="relation">sparar / läser</text>
+
+  <rect x="440" y="75" width="320" height="70" class="box" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="600" y="104" text-anchor="middle" class="class-title">Main</text>
+  <text x="600" y="129" text-anchor="middle" class="body">Meny och inmatning</text>
+
+  <rect x="400" y="205" width="400" height="80" class="box" fill="#dcfce7" stroke="#15803d"/>
+  <text x="600" y="237" text-anchor="middle" class="class-title">Game</text>
+  <text x="600" y="263" text-anchor="middle" class="body">Turordning · HP · vinnare</text>
+
+  <rect x="40" y="370" width="340" height="110" class="box" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="210" y="405" text-anchor="middle" class="class-title">ComputerPlayer</text>
+  <text x="210" y="435" text-anchor="middle" class="body">Väljer karaktär och handling</text>
+  <text x="210" y="460" text-anchor="middle" class="body">slumpmässigt</text>
+
+  <rect x="420" y="370" width="360" height="110" class="box" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="600" y="401" text-anchor="middle" class="class-title">Character (abstrakt)</text>
+  <text x="600" y="431" text-anchor="middle" class="body">name · hp · maxHp</text>
+  <text x="600" y="457" text-anchor="middle" class="body">attack() · useAbility()</text>
+
+  <rect x="820" y="370" width="340" height="110" class="box" fill="#ede9fe" stroke="#6d28d9"/>
+  <text x="990" y="405" text-anchor="middle" class="class-title">ActionType (enum)</text>
+  <text x="990" y="440" text-anchor="middle" class="body">ATTACK · SPECIAL</text>
+
+  <rect x="50" y="555" width="240" height="95" class="box" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="170" y="591" text-anchor="middle" class="class-title">Warrior</text>
+  <text x="170" y="620" text-anchor="middle" class="body">Egen förmåga</text>
+  <rect x="480" y="555" width="240" height="95" class="box" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="600" y="591" text-anchor="middle" class="class-title">Mage</text>
+  <text x="600" y="620" text-anchor="middle" class="body">Egen förmåga</text>
+  <rect x="910" y="555" width="240" height="95" class="box" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="1030" y="591" text-anchor="middle" class="class-title">Ranger</text>
+  <text x="1030" y="620" text-anchor="middle" class="body">Egen förmåga</text>
+
+  <rect x="420" y="755" width="360" height="82" class="box" fill="#f3e8ff" stroke="#7e22ce"/>
+  <text x="600" y="789" text-anchor="middle" class="class-title">SpecialAbility (interface)</text>
+  <text x="600" y="817" text-anchor="middle" class="body">use(user, target)</text>
+
+  <rect x="850" y="520" width="300" height="85" class="box" fill="#f3e8ff" stroke="#7e22ce"/>
+  <text x="1000" y="553" text-anchor="middle" class="class-title">GameResult</text>
+  <text x="1000" y="580" text-anchor="middle" class="body">playerName · winner · rounds</text>
+  <rect x="850" y="650" width="300" height="75" class="box" fill="#cffafe" stroke="#0e7490"/>
+  <text x="1000" y="681" text-anchor="middle" class="class-title">Client</text>
+  <text x="1000" y="706" text-anchor="middle" class="body">Skickar resultat · begär historik</text>
+  <rect x="850" y="770" width="300" height="75" class="box" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="1000" y="801" text-anchor="middle" class="class-title">Server</text>
+  <text x="1000" y="826" text-anchor="middle" class="body">Separat Thread</text>
+  <rect x="890" y="875" width="220" height="60" class="box" fill="#e5e7eb" stroke="#374151"/>
+  <text x="1000" y="901" text-anchor="middle" class="class-title">ResultStore</text>
+  <text x="1000" y="924" text-anchor="middle" class="body">Path + Files</text>
+
+  <text x="40" y="885" class="relation">Heldragen pil: använder / skickar</text>
+  <text x="40" y="910" class="relation">Triangel: arv · Streckad triangel: implementerar interface</text>
+</svg>

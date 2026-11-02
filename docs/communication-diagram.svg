@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="920" viewBox="0 0 1300 920" role="img" aria-labelledby="title description">
+  <title id="title">Battle Arena kommunikationsdiagram</title>
+  <desc id="description">Spelaren använder Main och Game. Game arbetar med karaktär och datorval. Matchresultatet skickas via Client till Server och sparas i en fil.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#263238"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 10 0 L 0 5 L 10 10 z" fill="#263238"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #17212b; }
+      .title { font-size: 30px; font-weight: 700; }
+      .heading { font-size: 20px; font-weight: 700; }
+      .body { font-size: 17px; }
+      .label { font-size: 15px; font-weight: 600; }
+      .box { stroke-width: 2.5; rx: 12; }
+      .arrow { fill: none; stroke: #263238; stroke-width: 2.5; marker-end: url(#arrow); }
+      .both { fill: none; stroke: #263238; stroke-width: 2.5; marker-start: url(#arrow-start); marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1300" height="920" fill="#ffffff"/>
+  <text x="650" y="52" text-anchor="middle" class="title">Battle Arena – så kommunicerar programdelarna</text>
+
+  <!-- Gameplay: left to right -->
+  <text x="70" y="112" class="heading">A. Spela en match</text>
+  <path class="arrow" d="M 245 205 L 350 205"/>
+  <text x="297" y="187" text-anchor="middle" class="label">namn och val</text>
+  <path class="arrow" d="M 550 205 L 655 205"/>
+  <text x="602" y="187" text-anchor="middle" class="label">startar match</text>
+  <path class="both" d="M 855 205 L 960 205"/>
+  <text x="907" y="187" text-anchor="middle" class="label">karaktär och HP</text>
+  <path class="both" d="M 755 265 C 755 330, 555 330, 555 265"/>
+  <text x="655" y="326" text-anchor="middle" class="label">begär / returnerar slumpval</text>
+
+  <rect x="65" y="160" width="180" height="90" class="box" fill="#fef3c7" stroke="#92400e"/>
+  <text x="155" y="195" text-anchor="middle" class="heading">Spelare</text>
+  <text x="155" y="224" text-anchor="middle" class="body">ger namn och val</text>
+  <rect x="350" y="160" width="200" height="90" class="box" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="450" y="195" text-anchor="middle" class="heading">Main</text>
+  <text x="450" y="224" text-anchor="middle" class="body">meny och inmatning</text>
+  <rect x="655" y="160" width="200" height="105" class="box" fill="#dcfce7" stroke="#15803d"/>
+  <text x="755" y="195" text-anchor="middle" class="heading">Game</text>
+  <text x="755" y="224" text-anchor="middle" class="body">turordning och regler</text>
+  <text x="755" y="248" text-anchor="middle" class="body">avgör vinnaren</text>
+  <rect x="960" y="160" width="260" height="90" class="box" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="1090" y="195" text-anchor="middle" class="heading">Character</text>
+  <text x="1090" y="224" text-anchor="middle" class="body">Warrior · Mage · Ranger</text>
+  <rect x="555" y="390" width="400" height="90" class="box" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="755" y="425" text-anchor="middle" class="heading">ComputerPlayer</text>
+  <text x="755" y="454" text-anchor="middle" class="body">väljer datorns karaktär och handling slumpmässigt</text>
+  <path class="both" d="M 755 390 L 755 268"/>
+  <text x="770" y="350" class="label">datorns val</text>
+
+  <!-- Result history: left to right -->
+  <path class="arrow" d="M 655 265 L 28 265 L 28 660 L 65 660"/>
+  <text x="42" y="520" class="label">Game skapar resultat</text>
+  <text x="70" y="555" class="heading">B. Spara och visa matchhistorik</text>
+  <path class="arrow" d="M 245 660 L 345 660"/>
+  <text x="295" y="642" text-anchor="middle" class="label">matchen är klar</text>
+  <path class="arrow" d="M 545 660 L 645 660"/>
+  <text x="595" y="642" text-anchor="middle" class="label">skickar resultat</text>
+  <path class="both" d="M 845 660 L 945 660"/>
+  <text x="895" y="642" text-anchor="middle" class="label">resultat / historik</text>
+  <rect x="65" y="615" width="180" height="90" class="box" fill="#dcfce7" stroke="#15803d"/>
+  <text x="155" y="650" text-anchor="middle" class="heading">GameResult</text>
+  <text x="155" y="679" text-anchor="middle" class="body">vinnare och rundor</text>
+  <rect x="345" y="615" width="200" height="90" class="box" fill="#cffafe" stroke="#0e7490"/>
+  <text x="445" y="650" text-anchor="middle" class="heading">Client</text>
+  <text x="445" y="679" text-anchor="middle" class="body">skickar / frågar</text>
+  <rect x="645" y="615" width="200" height="90" class="box" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="745" y="650" text-anchor="middle" class="heading">Server</text>
+  <text x="745" y="679" text-anchor="middle" class="body">arbetar i egen Thread</text>
+  <rect x="945" y="615" width="250" height="90" class="box" fill="#e5e7eb" stroke="#374151"/>
+  <text x="1070" y="650" text-anchor="middle" class="heading">Resultatfil</text>
+  <text x="1070" y="679" text-anchor="middle" class="body">Path och Files</text>
+
+  <rect x="175" y="770" width="950" height="75" class="box" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="650" y="800" text-anchor="middle" class="heading">När spelaren väljer historik</text>
+  <text x="650" y="827" text-anchor="middle" class="body">Main ber Client om historiken. Client frågar Server, som läser filen och skickar historiken tillbaka.</text>
+</svg>
