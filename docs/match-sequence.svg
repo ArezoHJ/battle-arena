@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1200" viewBox="0 0 1500 1200" role="img" aria-labelledby="title description">
+  <title id="title">Battle Arena – matchens steg</title>
+  <desc id="description">Sekvensdiagram som visar spelarens inmatning, matchens turer, sparande av resultat och hämtning av historik.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#263238"/>
+    </marker>
+    <marker id="return-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #17212b; }
+      .title { font-size: 30px; font-weight: 700; }
+      .participant { font-size: 17px; font-weight: 700; }
+      .label { font-size: 15px; }
+      .line { stroke: #94a3b8; stroke-width: 1.8; stroke-dasharray: 8 7; }
+      .message { stroke: #263238; stroke-width: 2.2; marker-end: url(#arrow); }
+      .return { stroke: #475569; stroke-width: 2; stroke-dasharray: 8 5; marker-end: url(#return-arrow); }
+      .box { stroke-width: 2; rx: 10; }
+    </style>
+  </defs>
+  <rect width="1500" height="1200" fill="#ffffff"/>
+  <text x="750" y="48" text-anchor="middle" class="title">Battle Arena – matchens steg från start till historik</text>
+
+  <!-- Participants -->
+  <rect x="35" y="85" width="170" height="58" class="box" fill="#fef3c7" stroke="#92400e"/>
+  <text x="120" y="121" text-anchor="middle" class="participant">Spelare</text>
+  <rect x="250" y="85" width="170" height="58" class="box" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="335" y="121" text-anchor="middle" class="participant">Main</text>
+  <rect x="465" y="85" width="170" height="58" class="box" fill="#dcfce7" stroke="#15803d"/>
+  <text x="550" y="121" text-anchor="middle" class="participant">Game</text>
+  <rect x="680" y="85" width="190" height="58" class="box" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="775" y="121" text-anchor="middle" class="participant">ComputerPlayer</text>
+  <rect x="920" y="85" width="160" height="58" class="box" fill="#cffafe" stroke="#0e7490"/>
+  <text x="1000" y="121" text-anchor="middle" class="participant">Client</text>
+  <rect x="1130" y="85" width="160" height="58" class="box" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="1210" y="121" text-anchor="middle" class="participant">Server</text>
+  <rect x="1330" y="85" width="150" height="58" class="box" fill="#e5e7eb" stroke="#374151"/>
+  <text x="1405" y="121" text-anchor="middle" class="participant">Resultatfil</text>
+
+  <!-- Lifelines -->
+  <path class="line" d="M 120 143 L 120 1165"/>
+  <path class="line" d="M 335 143 L 335 1165"/>
+  <path class="line" d="M 550 143 L 550 1165"/>
+  <path class="line" d="M 775 143 L 775 1165"/>
+  <path class="line" d="M 1000 143 L 1000 1165"/>
+  <path class="line" d="M 1210 143 L 1210 1165"/>
+  <path class="line" d="M 1405 143 L 1405 1165"/>
+
+  <!-- Start -->
+  <text x="40" y="180" class="label" font-weight="700">1. Starta spelet</text>
+  <path class="message" d="M 125 210 L 330 210"/>
+  <text x="227" y="201" text-anchor="middle" class="label">namn och karaktär</text>
+  <path class="message" d="M 340 250 L 545 250"/>
+  <text x="442" y="241" text-anchor="middle" class="label">starta match</text>
+
+  <!-- Turn loop -->
+  <rect x="45" y="285" width="835" height="375" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="8 5" rx="12"/>
+  <rect x="60" y="272" width="280" height="28" fill="#ffffff"/>
+  <text x="70" y="293" class="label" font-weight="700">2. Upprepa tills någon har 0 HP</text>
+  <path class="message" d="M 550 330 L 340 330"/>
+  <text x="445" y="321" text-anchor="middle" class="label">be om spelarens handling</text>
+  <path class="message" d="M 330 375 L 125 375"/>
+  <text x="227" y="366" text-anchor="middle" class="label">visa valen</text>
+  <path class="message" d="M 125 420 L 330 420"/>
+  <text x="227" y="411" text-anchor="middle" class="label">attack eller special</text>
+  <path class="message" d="M 340 465 L 545 465"/>
+  <text x="442" y="456" text-anchor="middle" class="label">skicka spelarens val</text>
+  <path class="message" d="M 560 510 L 765 510"/>
+  <text x="662" y="501" text-anchor="middle" class="label">begär datorns val</text>
+  <path class="return" d="M 765 555 L 560 555"/>
+  <text x="662" y="546" text-anchor="middle" class="label">slumpmässig handling</text>
+  <path class="return" d="M 540 600 L 345 600"/>
+  <text x="442" y="591" text-anchor="middle" class="label">händelse och HP-status</text>
+  <path class="return" d="M 325 635 L 130 635"/>
+  <text x="227" y="626" text-anchor="middle" class="label">visa resultatet</text>
+
+  <!-- Save result -->
+  <text x="40" y="710" class="label" font-weight="700">3. Spara resultatet</text>
+  <path class="message" d="M 560 745 L 995 745"/>
+  <text x="777" y="736" text-anchor="middle" class="label">matchresultat efter avslutad match</text>
+  <path class="message" d="M 1010 790 L 1205 790"/>
+  <text x="1107" y="781" text-anchor="middle" class="label">skicka resultat</text>
+  <path class="message" d="M 1220 835 L 1400 835"/>
+  <text x="1310" y="826" text-anchor="middle" class="label">lägg till i filen</text>
+  <text x="1200" y="865" text-anchor="middle" class="label">Server hanterar anslutningen i en egen Thread.</text>
+
+  <!-- Read history -->
+  <text x="40" y="900" class="label" font-weight="700">4. Visa historik senare</text>
+  <path class="message" d="M 125 930 L 330 930"/>
+  <text x="227" y="921" text-anchor="middle" class="label">välj visa historik</text>
+  <path class="message" d="M 340 960 L 995 960"/>
+  <text x="667" y="951" text-anchor="middle" class="label">Main ber Client om historik</text>
+  <path class="message" d="M 1010 990 L 1205 990"/>
+  <text x="1107" y="981" text-anchor="middle" class="label">Client frågar Server</text>
+  <path class="message" d="M 1220 1020 L 1400 1020"/>
+  <text x="1310" y="1011" text-anchor="middle" class="label">Server läser filen</text>
+  <path class="return" d="M 1395 1050 L 1215 1050"/>
+  <text x="1305" y="1041" text-anchor="middle" class="label">historik från filen</text>
+  <path class="return" d="M 1200 1080 L 1005 1080"/>
+  <text x="1102" y="1071" text-anchor="middle" class="label">Server svarar Client</text>
+  <path class="return" d="M 990 1110 L 340 1110"/>
+  <text x="665" y="1101" text-anchor="middle" class="label">Client skickar historik till Main</text>
+  <path class="return" d="M 330 1140 L 125 1140"/>
+  <text x="227" y="1131" text-anchor="middle" class="label">visa historiken</text>
+</svg>
